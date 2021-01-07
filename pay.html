@@ -100,33 +100,34 @@
     let urlNow = "http://prepay.jinshipark.com/pay.html";
     let scope = "snsapi_base";
     let code = getSearchString('code', search);
-    if (code !== '' && code !== undefined) {
-        carNum = decodeURIComponent(state);
-        let param = {
-            "code": code
-        };
-        $.ajax({
-            url: "http://hfzf.jinshipark.com/hfzf-api/wxApi/getOpenId",
-            contentType: "application/json",
-            dataType: "json",
-            type: "POST",
-            data: JSON.stringify(param),
-            success: function (data) {
-                if (data.status === 200) {
-                    openId = data.data;
-                } else {
-                    window.location.href = './error.html?msg=' + encodeURIComponent(data.msg);
-                }
-                add();
-            },
-            error: function (err) {
-
-            },
-        });
-    } else {
-        let url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + urlNow + '&response_type=code&scope=' + scope + '&state=' + encodeURIComponent(carNum) + '&connect_redirect=1#wechat_redirect';
-        window.location.replace(url);
-    }
+    alert(carNum);
+    // if (code !== '' && code !== undefined) {
+    //     carNum = decodeURIComponent(state);
+    //     let param = {
+    //         "code": code
+    //     };
+    //     $.ajax({
+    //         url: "http://hfzf.jinshipark.com/hfzf-api/wxApi/getOpenId",
+    //         contentType: "application/json",
+    //         dataType: "json",
+    //         type: "POST",
+    //         data: JSON.stringify(param),
+    //         success: function (data) {
+    //             if (data.status === 200) {
+    //                 openId = data.data;
+    //             } else {
+    //                 window.location.href = './error.html?msg=' + encodeURIComponent(data.msg);
+    //             }
+    //             add();
+    //         },
+    //         error: function (err) {
+    //
+    //         },
+    //     });
+    // } else {
+    //     let url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + urlNow + '&response_type=code&scope=' + scope + '&state=' + encodeURIComponent(carNum) + '&connect_redirect=1#wechat_redirect';
+    //     window.location.replace(url);
+    // }
     //去支付
     var pay = document.getElementById('pay');
     pay.onclick = function () {
