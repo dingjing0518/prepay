@@ -22,10 +22,10 @@ ol {
 }
 .icon-divv {
     width: 100%;
-    height: 12rem;
+    height: 10rem;
 }
 
-.icon-divv > img {
+.icon-divv > a > img {
     width: 100%;
     height: 10rem;
 }
@@ -52,6 +52,7 @@ ol {
 .error-img{
     text-align:center;
     vertical-align:middle;
+    margin-top: 20%;
 }
 
 .error-img > img {
@@ -126,7 +127,7 @@ ol {
 
 #carLicenseBox .carLicenseTitle {
     width: 100%;
-    height: 70px;
+    height: 40px;
     background-color: #fff;
     text-align: center;
     line-height: 70px;
