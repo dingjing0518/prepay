@@ -374,6 +374,21 @@
             alert("车牌录入不正确");
             return;
         }
+        let countdown = 10;
+        setTime(countdown);
+        function setTime(countdown) {
+            if (countdown === 0) {
+                document.getElementById('submitBtn').removeAttribute("disabled");
+                document.getElementById('submitBtn').innerHTML = "提交";
+            } else {
+                document.getElementById('submitBtn').setAttribute("disabled", true);
+                document.getElementById('submitBtn').innerHTML = "提交中(" + countdown + ")";
+                countdown--;
+                setTimeout(function () {
+                    setTime(countdown);
+                }, 1000)
+            }
+        }
         localStorage.setItem('employ-coupon', carNum);
         params = {
             "plate": String(carNum),
